@@ -4,10 +4,12 @@
 // 2 . Callback -- Callback is Property Modification By child in which properties
 //  are available in child by using props from the parent component .
 
+
 //    3 . Context API --
 // you have one Parent and 10 childs
 // you have to create a context in Parent and export it so it
 // can available to every child present .
+
 
 // 4 . React Router ---
 // 1. For internal navigation between pages .
