@@ -11,7 +11,7 @@
 // can available to every child present .
 
 
-// 4 . React Router ---
+// 4 . React Router ---  npm install react-router-dom
 // 1. For internal navigation between pages .
 // 2. While you are navigating you can also pass the data to the child
 // where you'll navigate in the form of state which is a data object paased while navigating .
