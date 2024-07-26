@@ -3,6 +3,7 @@ import "./App.css";
 import Parent from "./Components/Parent";
 import ContextParent from "./Components/ContextAPI/ContextParent";
 import MainLayout from "./Components/ReactRouter/MainLayout";
+import DynamicForm from "./Components/DynamicForm/DynamicForm";
 
 function App() {
   return (
@@ -82,7 +83,32 @@ function App() {
           <ContextParent />
         </div>
       </fieldset> */}
-      <MainLayout />
+      <fieldset
+        style={{
+          border: "1px solid black",
+          borderRadius: "10px",
+          marginLeft: "10px",
+          marginRight: "10px",
+          padding: "5px",
+        }}
+      >
+        <legend
+          style={{
+            paddingLeft: "10px",
+            paddingRight: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            fontWeight: "bold",
+            fontSize: "20px",
+          }}
+        >
+          Dynamic Form
+        </legend>
+        <div>
+          <DynamicForm />
+        </div>
+      </fieldset>
+      {/* <MainLayout /> */}
     </div>
   );
 }

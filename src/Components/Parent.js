@@ -6,8 +6,8 @@
 
 
 //    3 . Context API --
-// you have one Parent and 10 childs
-// you have to create a context in Parent and export it so it
+// you have one Parent and 10 childs .
+// you have to create a context in Parent and export it so it .
 // can available to every child present .
 
 
