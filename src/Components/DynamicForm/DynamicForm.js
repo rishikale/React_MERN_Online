@@ -31,6 +31,7 @@ function DynamicForm() {
     setUsers(dataArray);
     let formId = document.getElementById("firstForm");
     formId.reset();
+    
     setFormFields({
       firstName: "",
       middleName: "",
