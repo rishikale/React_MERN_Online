@@ -1,5 +1,7 @@
 import React from "react";
 import { useFieldArray, useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 function ReactHookForm() {
   //   const { propOne, propTwo } = props;
@@ -13,10 +15,36 @@ function ReactHookForm() {
     education: [{ education: "", passingYear: "", place: "" }],
   };
 
-  const { handleSubmit, register, reset, watch, getValues, setValue, control } =
-    useForm({
-      defaultValues: defaultValues,
-    });
+  const errorObject = yup.object().shape({
+    firstName: yup.string().required(),
+    middleName: yup.string().required(),
+    lastName: yup.string().required(),
+    age: yup.number().required().min(1).max(150),
+  });
+
+  // 1. yup
+
+  // yup is library that provides or used to create a error schema or errorObject
+
+  // 2. yupResolver
+
+  //  when yupResolver is passed to useForm it resolves the values inserted
+  //  by the user with the errorObject that you have created using yup
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isValid },
+    reset,
+    watch,
+    getValues,
+    setValue,
+    control,
+  } = useForm({
+    defaultValues: defaultValues,
+    mode: "onChange",
+    resolver: yupResolver(errorObject),
+  });
 
   const { fields, append, remove } = useFieldArray({
     name: "education",
@@ -52,6 +80,7 @@ function ReactHookForm() {
   ]);
 
   console.log("educationWatch fieldArray is :", educationWatch);
+  console.log("the errors in the form and the isValid flag :", errors, isValid);
 
   // useCase of getValues
   function getFieldValues() {
@@ -103,19 +132,27 @@ function ReactHookForm() {
         <input
           name="firstName"
           {...register("firstName")}
+          type="text"
           placeholder="First Name"
         />
         <input
           name="middleName"
+          type="text"
           {...register("middleName")}
           placeholder="Middle Name"
         />
         <input
           name="lastName"
           {...register("lastName")}
+          type="text"
           placeholder="Last Name"
         />
-        <input name="age" {...register("age")} placeholder="Age" />
+        <input
+          name="age"
+          type="number"
+          {...register("age")}
+          placeholder="Age"
+        />
       </div>
       <div style={{ marginTop: "10px" }}>
         {fields.map((field, fieldIndex) => {
