@@ -6,6 +6,7 @@ import MainLayout from "./Components/ReactRouter/MainLayout";
 import DynamicForm from "./Components/DynamicForm/DynamicForm";
 import ReactHookForm from "./Components/ReactHookForm/ReactHookForm";
 import UseFormContext from "./Components/useFormContext/UseFormContext";
+import ReactHooks from "./Components/ReactHooks/ReactHooks";
 
 function App() {
   return (
@@ -135,7 +136,7 @@ function App() {
           <ReactHookForm />
         </div>
       </fieldset>
-      <fieldset
+      {/* <fieldset
         style={{
           border: "1px solid black",
           borderRadius: "10px",
@@ -158,6 +159,31 @@ function App() {
         </legend>
         <div>
           <UseFormContext />
+        </div>
+      </fieldset> */}
+      <fieldset
+        style={{
+          border: "1px solid black",
+          borderRadius: "10px",
+          marginLeft: "10px",
+          marginRight: "10px",
+          padding: "5px",
+        }}
+      >
+        <legend
+          style={{
+            paddingLeft: "10px",
+            paddingRight: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            fontWeight: "bold",
+            fontSize: "20px",
+          }}
+        >
+          React Hooks
+        </legend>
+        <div>
+          <ReactHooks />
         </div>
       </fieldset>
       {/* <MainLayout /> */}

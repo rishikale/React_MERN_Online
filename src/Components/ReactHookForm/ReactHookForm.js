@@ -2,6 +2,7 @@ import React from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import axios from "axios";
 
 function ReactHookForm() {
   //   const { propOne, propTwo } = props;
@@ -16,10 +17,10 @@ function ReactHookForm() {
   };
 
   const errorObject = yup.object().shape({
-    firstName: yup.string().required(),
-    middleName: yup.string().required(),
-    lastName: yup.string().required(),
-    age: yup.number().required().min(1).max(150),
+    // firstName: yup.string().required(),
+    // middleName: yup.string().required(),
+    // lastName: yup.string().required(),
+    // age: yup.number().required().min(1).max(150),
   });
 
   // 1. yup
@@ -61,6 +62,16 @@ function ReactHookForm() {
   // a function used to get the form values when the button clicked which is having tye type "Submit" .
   console.log("The values in the form :", users);
   function getFormValues(values) {
+    const user = { userName: "Rishi", password: 12345 };
+
+    try {
+      axios.post("http://localhost:3005/saveUser", user, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch {}
+
     let dataArray = [...users];
     dataArray.push(values);
     setUsers(dataArray);
