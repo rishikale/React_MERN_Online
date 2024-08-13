@@ -145,6 +145,10 @@ function ReactHookForm() {
           {...register("firstName")}
           type="text"
           placeholder="First Name"
+          style={{
+            border:"1px solid black",
+            borderRadius:"10px"
+          }}
         />
         <input
           name="middleName"
