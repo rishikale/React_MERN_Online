@@ -9,6 +9,7 @@ import UseFormContext from "./Components/useFormContext/UseFormContext";
 import ReactHooks from "./Components/ReactHooks/ReactHooks";
 import ArrayAndObjects from "./Components/ArrayAndObjects/ArrayAndObjects";
 import TailwindCssIntro from "./Components/TailwindCss/TailwindCssIntro";
+import ClassComponent from "./Components/ClassComponents.js/ClassComponent";
 
 function App() {
   return (
@@ -138,6 +139,7 @@ function App() {
           <ReactHookForm />
         </div>
       </fieldset>
+
       {/* <fieldset
         style={{
           border: "1px solid black",
@@ -236,6 +238,31 @@ function App() {
         </legend>
         <div>
           <TailwindCssIntro />
+        </div>
+      </fieldset>
+      <fieldset
+        style={{
+          border: "1px solid black",
+          borderRadius: "10px",
+          marginLeft: "10px",
+          marginRight: "10px",
+          padding: "5px",
+        }}
+      >
+        <legend
+          style={{
+            paddingLeft: "10px",
+            paddingRight: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            fontWeight: "bold",
+            fontSize: "20px",
+          }}
+        >
+          React Class Components
+        </legend>
+        <div>
+          <ClassComponent />
         </div>
       </fieldset>
       {/* <MainLayout /> */}
