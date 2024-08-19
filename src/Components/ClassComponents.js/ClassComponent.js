@@ -43,6 +43,16 @@ class ClassComponent extends React.Component {
     // this.incrementCount = this.incrementCount.bind(this);
   }
 
+  // inputs
+
+  // Price
+  // Quantity 
+  // Total Amount
+
+  // useForm
+  // useEffect
+  // setValue / value
+
   //   const [count,setCount]=React.useState(0)
 
   // lifecycle methods .

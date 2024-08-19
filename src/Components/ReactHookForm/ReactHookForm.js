@@ -7,6 +7,8 @@ import axios from "axios";
 function ReactHookForm() {
   //   const { propOne, propTwo } = props;
   const [users, setUsers] = React.useState([]);
+  const [isEdit, setIsEdit] = React.useState(false);
+  const [updateIndex, setUpdateIndex] = React.useState(null);
 
   const defaultValues = {
     firstName: "",
@@ -60,22 +62,20 @@ function ReactHookForm() {
   //   setValue -- it is the function used to set a forcefull value to any field lying between your form tag .
 
   // a function used to get the form values when the button clicked which is having tye type "Submit" .
-  console.log("The values in the form :", users);
   function getFormValues(values) {
-    const user = { userName: "Rishi", password: 12345 };
-
-    try {
-      axios.post("http://localhost:3005/saveUser", user, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-    } catch {}
-
-    let dataArray = [...users];
-    dataArray.push(values);
-    setUsers(dataArray);
-    reset(defaultValues);
+    if (isEdit === false) {
+      console.log("The values in the form :");
+      let dataArray = [...users];
+      dataArray.push(values);
+      setUsers(dataArray);
+      reset(defaultValues);
+    } else {
+      let dataArray = structuredClone(users);
+      // dataArray[updateIndex] = updateObject;
+      dataArray.splice(updateIndex, 1, values);
+      setUsers(dataArray);
+      setIsEdit(false);
+    }
   }
 
   // useCase of watch
@@ -117,12 +117,64 @@ function ReactHookForm() {
 
   console.log(
     "firstNameWatch value is :",
-    firstName,
-    middleName,
-    lastName,
-    age
+    updateIndex
   );
 
+  function handleEdit(user, userIndex) {
+    setValue("firstName", user?.firstName);
+    setValue("middleName", user?.middleName);
+    setValue("lastName", user?.lastName);
+    setValue("age", user?.age);
+    setIsEdit(true);
+    setUpdateIndex(userIndex);
+  }
+  const [firstNameVal, middleNameVal, lastNameVal, ageVal] = watch([
+    "firstName",
+    "middleName",
+    "lastName",
+    "age",
+  ]);
+
+  function handleUpdateUser() {
+    console.log(
+      "firstName,middleName,lastName,age",
+      firstName,
+      middleName,
+      lastName,
+      age
+    );
+
+    // array.splice(requiredIndex,deleteCount,replaceObject/object to push)
+
+    let updateObject = {
+      firstName: firstNameVal,
+      middleName: middleNameVal,
+      lastName: lastNameVal,
+      age: ageVal,
+      education: [
+        {
+          education: "",
+          passingYear: "",
+          place: "",
+        },
+      ],
+    };
+
+    let dataArray = structuredClone(users);
+    dataArray[updateIndex] = updateObject;
+    // dataArray.splice(updateIndex, 1, updateObject);
+    setUsers(dataArray);
+    setIsEdit(false);
+    setValue("firstName", "");
+    setValue("middleName", "");
+    setValue("lastName", "");
+    setValue("age", 0);
+    reset(defaultValues);
+
+    // setUpdateIndex(null);
+  }
+
+  console.log("dataArray after modification is :", users);
   return (
     <form onSubmit={handleSubmit(getFormValues)}>
       <label
@@ -146,8 +198,8 @@ function ReactHookForm() {
           type="text"
           placeholder="First Name"
           style={{
-            border:"1px solid black",
-            borderRadius:"10px"
+            border: "1px solid black",
+            borderRadius: "10px",
           }}
         />
         <input
@@ -213,15 +265,78 @@ function ReactHookForm() {
           );
         })}
       </div>
-      <button
+      {/* <button
         type="button"
         onClick={() => {
           getFieldValues();
         }}
       >
         Get Values
-      </button>
-      <button type="submit">Submit</button>
+      </button> */}
+      {isEdit === true ? (
+        <button type="submit">Update</button>
+      ) : (
+        <button type="submit">Submit</button>
+      )}
+
+      <div className="my-5 justify-center text-center">
+        <table>
+          <thead>
+            <tr>
+              <td className="border border-slate-700">Actions</td>
+              <td className="border border-slate-700">First Name</td>
+              <td className="border border-slate-700">Middle Name</td>
+              <td className="border border-slate-700">Last Name</td>
+              <td className="border border-slate-700">Age</td>
+            </tr>
+          </thead>
+          <tbody>
+            {users?.length > 0
+              ? users.map((user, userIndex) => {
+                  return (
+                    <tr>
+                      <td className="border border-slate-700">
+                        <div className="flex gap-2 items-center">
+                          <button
+                            onClick={() => {
+                              handleEdit(user, userIndex);
+                            }}
+                            className="bg-green-800 text-white rounded px-2 m-2"
+                            type="button"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            className="bg-red-800 text-white rounded px-2 m-2"
+                            type="button"
+                            onClick={() => {
+                              let dataArray = [...users];
+                              // let filtered=dataArray.filter((item)=>item!==user)
+                              dataArray.splice(userIndex, 1);
+                              setUsers(dataArray);
+                            }}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                      <td className="border border-slate-700">
+                        {user?.firstName}
+                      </td>
+                      <td className="border border-slate-700">
+                        {user?.middleName}
+                      </td>
+                      <td className="border border-slate-700">
+                        {user?.lastName}
+                      </td>
+                      <td className="border border-slate-700">{user?.age}</td>
+                    </tr>
+                  );
+                })
+              : ""}
+          </tbody>
+        </table>
+      </div>
     </form>
   );
 }
