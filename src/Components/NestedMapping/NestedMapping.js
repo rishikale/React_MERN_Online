@@ -5,6 +5,49 @@ function NestedMapping() {
   const [array, setArray] = React.useState(DummyData.subFunction);
   console.log("Dummy data :", DummyData);
 
+  function firstLevelChange(e, functionalityIndex) {
+    console.log(
+      "e value and functionality index :",
+      e.target.checked,
+      functionalityIndex
+    );
+
+    let dataArray = [...array];
+
+    // array[index]
+
+    let workingObject = dataArray[functionalityIndex];
+
+    workingObject.isChecked = e.target.checked;
+    let subFunctions = workingObject.subFunction;
+
+    if (subFunctions?.length > 0) {
+      for (let subObject of subFunctions) {
+        subObject.isChecked = e.target.checked;
+
+        let permissions = subObject?.permissions;
+
+        if (permissions?.length > 0) {
+          for (let permissionObject of permissions) {
+            permissionObject.isChecked = e.target.checked;
+            console.log("dataArray modified is :",permissionObject);
+          }
+        }
+      }
+    }
+
+    dataArray[functionalityIndex] = workingObject;
+    
+    setArray(dataArray);
+
+    console.log(
+      "the workingObject :",
+      dataArray,
+      e.target.checked,
+      workingObject
+    );
+  }
+
   return (
     <div className="flex justify-start">
       <div className="text-xl font-semibold flex justify-center">
@@ -21,6 +64,10 @@ function NestedMapping() {
                     <div className=" pl-32 flex gap-2 justify-start text-lg font-semibold">
                       <div>
                         <input
+                          onChange={(e) => {
+                            firstLevelChange(e, functionalityIndex);
+                          }}
+                          defaultChecked={functionality.isChecked}
                           type="checkbox"
                           name={`${functionality.functionality}${functionalityIndex}`}
                         />
@@ -41,6 +88,7 @@ function NestedMapping() {
                                   <div className="ml-32 flex gap-2 text-lg font-semibold">
                                     <div>
                                       <input
+                                        checked={subFunctionality.isChecked}
                                         className="ml-24"
                                         type="checkbox"
                                       />
@@ -59,6 +107,9 @@ function NestedMapping() {
                                               >
                                                 <div>
                                                   <input
+                                                    checked={
+                                                      permission.isChecked
+                                                    }
                                                     type="checkbox"
                                                     className="ml-24"
                                                   />
