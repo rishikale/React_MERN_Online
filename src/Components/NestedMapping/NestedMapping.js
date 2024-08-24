@@ -3,14 +3,13 @@ import { DummyData } from "./DummyData";
 
 function NestedMapping() {
   const [array, setArray] = React.useState(DummyData.subFunction);
-  console.log("Dummy data :", DummyData);
+
+  // const firstLevelChange = () => {
+    // we cannot access this block here
+  // };
 
   function firstLevelChange(e, functionalityIndex) {
-    console.log(
-      "e value and functionality index :",
-      e.target.checked,
-      functionalityIndex
-    );
+    // this.arguments
 
     let dataArray = [...array];
 
@@ -24,20 +23,18 @@ function NestedMapping() {
     if (subFunctions?.length > 0) {
       for (let subObject of subFunctions) {
         subObject.isChecked = e.target.checked;
-
         let permissions = subObject?.permissions;
-
         if (permissions?.length > 0) {
           for (let permissionObject of permissions) {
             permissionObject.isChecked = e.target.checked;
-            console.log("dataArray modified is :",permissionObject);
+            console.log("dataArray modified is :", permissionObject);
           }
         }
       }
     }
 
     dataArray[functionalityIndex] = workingObject;
-    
+
     setArray(dataArray);
 
     console.log(
@@ -46,6 +43,7 @@ function NestedMapping() {
       e.target.checked,
       workingObject
     );
+
   }
 
   return (

@@ -12,6 +12,7 @@ import TailwindCssIntro from "./Components/TailwindCss/TailwindCssIntro";
 import ClassComponent from "./Components/ClassComponents.js/ClassComponent";
 import MaterialUIIntro from "./Components/MaterialUIIntro/MaterialUIIntro";
 import NestedMapping from "./Components/NestedMapping/NestedMapping";
+import TableModification from "./Components/TableModifications/TableModification";
 
 function App() {
   return (
@@ -186,12 +187,37 @@ function App() {
             fontSize: "20px",
           }}
         >
+          Table Modification
+        </legend>
+        <div>
+          <TableModification />
+        </div>
+      </fieldset>
+      {/* <fieldset
+        style={{
+          border: "1px solid black",
+          borderRadius: "10px",
+          marginLeft: "10px",
+          marginRight: "10px",
+          padding: "5px",
+        }}
+      >
+        <legend
+          style={{
+            paddingLeft: "10px",
+            paddingRight: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            fontWeight: "bold",
+            fontSize: "20px",
+          }}
+        >
           Nested Mapping Component
         </legend>
         <div>
           <NestedMapping />
         </div>
-      </fieldset>
+      </fieldset> */}
       {/* <fieldset
         style={{
           border: "1px solid black",
