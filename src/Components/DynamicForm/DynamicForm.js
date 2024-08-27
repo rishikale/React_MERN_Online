@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function DynamicForm() {
   const [formFields, setFormFields] = React.useState({
@@ -7,6 +8,10 @@ function DynamicForm() {
     lastName: "",
     age: 0,
   });
+
+  const globalState = useSelector((state) => state.counter.value);
+  // useSelector is hook provided by Redux toolkit
+  // useSelector is used to access the global state from the redux store
 
   const [users, setUsers] = React.useState([]);
 
@@ -31,7 +36,7 @@ function DynamicForm() {
     setUsers(dataArray);
     let formId = document.getElementById("firstForm");
     formId.reset();
-    
+
     setFormFields({
       firstName: "",
       middleName: "",
@@ -52,6 +57,9 @@ function DynamicForm() {
       >
         Dynamic Form
       </label>
+      <div className="flex justify-center text-xl font-bold">
+        State from the redux store is :{globalState}
+      </div>
       <div
         style={{
           marginTop: "10px",

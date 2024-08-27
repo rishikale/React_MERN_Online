@@ -2,9 +2,13 @@ import React from "react";
 import FormChild from "./FormChild";
 import SecondFormChild from "./SecondFormChild";
 import { FormProvider, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addNumber } from "../Reducers/CounterSlice";
 
 function UseFormContext() {
-  
+  // useDispatch is hook provided by the redux toolkit
+  // useDispatch is used to modify the global state available .
+  const dispatch = useDispatch();
   const defaultValues = {
     firstName: "",
     lastName: "Xyz",
@@ -43,6 +47,17 @@ function UseFormContext() {
             </div>
             <div>
               <button type="Submit">Submit</button>
+            </div>
+            <div>
+              <button
+                type="button"
+                className="rounded px-3 bg-green-500 text-white my-5"
+                onClick={() => {
+                  dispatch(addNumber(10));
+                }}
+              >
+                Add Number
+              </button>
             </div>
           </div>
         </div>

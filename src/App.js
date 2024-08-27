@@ -13,338 +13,343 @@ import ClassComponent from "./Components/ClassComponents.js/ClassComponent";
 import MaterialUIIntro from "./Components/MaterialUIIntro/MaterialUIIntro";
 import NestedMapping from "./Components/NestedMapping/NestedMapping";
 import TableModification from "./Components/TableModifications/TableModification";
+import { Provider } from "react-redux";
+import store from "./store";
 
 function App() {
+  
   return (
-    <div className="App">
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+    <Provider store={store}>
+      <div className="App">
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Props And Callback
-        </legend>
-        <div>
-          <Parent />
-        </div>
-      </fieldset>
-      <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Props And Callback
+          </legend>
+          <div>
+            <Parent />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Context API
-        </legend>
-        <div>
-          <ContextParent />
-        </div>
-      </fieldset>
-      <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Context API
+          </legend>
+          <div>
+            <ContextParent />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          React Router
-        </legend>
-        <div>
-          <ContextParent />
-        </div>
-      </fieldset> */}
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            React Router
+          </legend>
+          <div>
+            <ContextParent />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Dynamic Form
-        </legend>
-        <div>
-          <DynamicForm />
-        </div>
-      </fieldset> */}
-      <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Dynamic Form
+          </legend>
+          <div>
+            <DynamicForm />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          React Hook Form
-        </legend>
-        <div>
-          <ReactHookForm />
-        </div>
-      </fieldset>
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            React Hook Form
+          </legend>
+          <div>
+            <ReactHookForm />
+          </div>
+        </fieldset>
 
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Use Form Context
-        </legend>
-        <div>
-          <UseFormContext />
-        </div>
-      </fieldset> */}
-      <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Use Form Context
+          </legend>
+          <div>
+            <UseFormContext />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Table Modification
-        </legend>
-        <div>
-          <TableModification />
-        </div>
-      </fieldset>
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Table Modification
+          </legend>
+          <div>
+            <TableModification />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Nested Mapping Component
-        </legend>
-        <div>
-          <NestedMapping />
-        </div>
-      </fieldset> */}
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Nested Mapping Component
+          </legend>
+          <div>
+            <NestedMapping />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Material UI
-        </legend>
-        <div>
-          <MaterialUIIntro />
-        </div>
-      </fieldset> */}
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Material UI
+          </legend>
+          <div>
+            <MaterialUIIntro />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          React Hooks
-        </legend>
-        <div>
-          <ReactHooks />
-        </div>
-      </fieldset> */}
-      {/* <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            React Hooks
+          </legend>
+          <div>
+            <ReactHooks />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Array And Objects
-        </legend>
-        <div>
-          <ArrayAndObjects />
-        </div>
-      </fieldset> */}
-      <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Array And Objects
+          </legend>
+          <div>
+            <ArrayAndObjects />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          Tailwind CSS Overview
-        </legend>
-        <div>
-          <TailwindCssIntro />
-        </div>
-      </fieldset>
-      <fieldset
-        style={{
-          border: "1px solid black",
-          borderRadius: "10px",
-          marginLeft: "10px",
-          marginRight: "10px",
-          padding: "5px",
-        }}
-      >
-        <legend
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Tailwind CSS Overview
+          </legend>
+          <div>
+            <TailwindCssIntro />
+          </div>
+        </fieldset>
+        <fieldset
           style={{
-            paddingLeft: "10px",
-            paddingRight: "10px",
+            border: "1px solid black",
+            borderRadius: "10px",
             marginLeft: "10px",
             marginRight: "10px",
-            fontWeight: "bold",
-            fontSize: "20px",
+            padding: "5px",
           }}
         >
-          React Class Components
-        </legend>
-        <div>
-          <ClassComponent />
-        </div>
-      </fieldset>
-      {/* <MainLayout /> */}
-    </div>
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            React Class Components
+          </legend>
+          <div>
+            <ClassComponent />
+          </div>
+        </fieldset>
+        {/* <MainLayout /> */}
+      </div>
+    </Provider>
   );
 }
 
