@@ -15,9 +15,9 @@ import NestedMapping from "./Components/NestedMapping/NestedMapping";
 import TableModification from "./Components/TableModifications/TableModification";
 import { Provider } from "react-redux";
 import store from "./store";
+import Products from "./Components/Products/Products";
 
 function App() {
-  
   return (
     <Provider store={store}>
       <div className="App">
@@ -219,9 +219,34 @@ function App() {
             Nested Mapping Component
           </legend>
           <div>
-            <NestedMapping />
+            <Products />
           </div>
         </fieldset>
+        {/* <fieldset
+          style={{
+            border: "1px solid black",
+            borderRadius: "10px",
+            marginLeft: "10px",
+            marginRight: "10px",
+            padding: "5px",
+          }}
+        >
+          <legend
+            style={{
+              paddingLeft: "10px",
+              paddingRight: "10px",
+              marginLeft: "10px",
+              marginRight: "10px",
+              fontWeight: "bold",
+              fontSize: "20px",
+            }}
+          >
+            Nested Mapping Component
+          </legend>
+          <div>
+            <NestedMapping />
+          </div>
+        </fieldset> */}
         <fieldset
           style={{
             border: "1px solid black",

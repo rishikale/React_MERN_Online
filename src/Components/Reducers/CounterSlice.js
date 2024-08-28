@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: 0,
-  array: [1, 2, 3, 4, 5],
+  products: [],
 };
 
 const CounterSlice = createSlice({
@@ -12,14 +12,16 @@ const CounterSlice = createSlice({
     addNumber: (state, action) => {
       state.value = state.value + action.payload;
     },
-    clearArray:(state)=>{
-        state.array=[];
-    }
+
+    addProduct: (state, action) => {
+      alert("Product has been added successfully..!!");
+      state.products = [...state.products, action.payload];
+    },
   },
 });
 
 const { reducer, actions } = CounterSlice;
 
-export const { addNumber,clearArray } = actions;
+export const { addNumber, addProduct } = actions;
 
 export default reducer;

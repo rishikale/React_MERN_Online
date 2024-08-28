@@ -10,10 +10,13 @@ function DynamicForm() {
   });
 
   const globalState = useSelector((state) => state.counter.value);
+  const products = useSelector((state) => state.counter.products);
   // useSelector is hook provided by Redux toolkit
   // useSelector is used to access the global state from the redux store
 
   const [users, setUsers] = React.useState([]);
+
+  console.log("The saved products are :", products);
 
   let object = {
     key: "value",
@@ -205,6 +208,31 @@ function DynamicForm() {
               : null}
           </tbody>
         </table>
+      </div>
+      <div className="flex justify-start gap-5">
+        {products?.length > 0
+          ? products.map((product, productIndex) => {
+              return (
+                <div
+                  className="border border-gray-500 rounded-lg p-2"
+                  key={productIndex}
+                >
+                  <div className="font-bold tracking-wide text-xl">
+                    Product :&nbsp; {product?.Name}
+                  </div>
+                  <div className="font-bold tracking-wide text-xl">
+                    Product Price :&nbsp; {product?.Price}
+                  </div>
+                  <div className="font-bold tracking-wide text-xl">
+                    Product Quantity :&nbsp; {product?.Quantity}
+                  </div>
+                  <div className="flex justify-center mt-5">
+                    <img src={product?.Image} className="h-20 w-32" />
+                  </div>
+                </div>
+              );
+            })
+          : null}
       </div>
     </form>
   );
